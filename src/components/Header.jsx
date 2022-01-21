@@ -7,7 +7,8 @@ const Header = () => {
             <h3 className='header--logo-text'>Meme Generator</h3>
             </div>
             <div className="header--course-title">
-                <p>React Course- Project 3</p>
+                <p></p>
+                
             </div>
         </header>
     )
