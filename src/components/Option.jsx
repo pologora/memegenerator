@@ -7,8 +7,6 @@ const Option = props => {
             <br />
             <select
                 id="favColor"
-                // value={formData.favColor}
-                // onChange={handleChange}
                 name="favColor"
             >
                 <option value="">-- Choose --</option>

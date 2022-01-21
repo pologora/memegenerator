@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import data from '../data/data'
+import { useEffect, useState } from 'react'
 
 
-const Meme = () => {
+export default function Meme() {
 
     const [meme, setMeme] = useState({
         topText: '',
@@ -10,14 +9,21 @@ const Meme = () => {
         randomImageUrl: ''
     })
 
-    const [allMemeImages, setAllMemeImages] = useState(data.data.memes)
+    const [allMemes, setAllMemes] = useState([])
+
+    useEffect(() => {
+        fetch('https://api.imgflip.com/get_memes')
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
+    }, [])
 
     const handleGetMemeBtnClick = () => {
-        const random = Math.floor(Math.random() * allMemeImages.length)
+        const random = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[random].url
         setMeme(prevState => {
             return {
                 ...prevState,
-                randomImageUrl: allMemeImages[random].url
+                randomImageUrl: url
             }
         })
     }
@@ -27,7 +33,7 @@ const Meme = () => {
         setMeme(prevState => {
             return {
                 ...prevState,
-               [name]: value
+                [name]: value
             }
         })
     }
@@ -55,7 +61,7 @@ const Meme = () => {
                     onClick={handleGetMemeBtnClick}
                     type="submit"
                     className="meme-form--get-meme-btn"
-                >Get a new meme image 🖼</button>
+                >Get a new meme image <span className='meme-form--btn-icon'> 🖼</span></button>
             </div>
 
             <div className="meme-container" style={{ display: meme.randomImageUrl ? 'block' : 'none' }} >
@@ -66,6 +72,3 @@ const Meme = () => {
         </main>
     )
 }
-
-
-export default Meme
