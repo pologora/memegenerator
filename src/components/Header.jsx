@@ -1,4 +1,5 @@
 import trollImg from '../img/troll-face.png'
+
 const Header = () => {
     return (
         <header className="header">
