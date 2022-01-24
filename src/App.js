@@ -44,16 +44,16 @@ const handleGetMeme = () => {
   return (
     <div className="App">
       <Header/>
-      <main>
-        <Form 
-        handleOnChange={handleOnChange} 
-        meme={meme.randomImageUrl}
-        handleGetMeme={handleGetMeme}
-        />
-        <Meme 
-          meme={meme}
-        />
-      </main>
+        <main>
+            <Form 
+              handleOnChange={handleOnChange} 
+              meme={meme.randomImageUrl}
+              handleGetMeme={handleGetMeme}
+            />
+            <Meme 
+              meme={meme}
+            />
+        </main>
     </div>
   );
 }

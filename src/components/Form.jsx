@@ -10,6 +10,7 @@ export default function Form(props) {
                 onChange={props.handleOnChange}
                 disabled={!props.meme && true}
                 name="topText"
+                value={props.topText}
             />
             <input
                 type="text"
@@ -18,6 +19,7 @@ export default function Form(props) {
                 onChange={props.handleOnChange}
                 disabled={!props.meme && true}
                 name="bottomText"
+                value={props.bottomText}
             />
             <button
                 onClick={props.handleGetMeme}
